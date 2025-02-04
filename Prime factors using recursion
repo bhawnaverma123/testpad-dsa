@@ -1,0 +1,22 @@
+import java.util.Scanner;
+class Main {
+    // Recursive function to print prime factors of n
+    public static void printPrimeFactors(int n, int divisor) {
+        // Base case
+        if (n < 2) {
+            return;
+        }
+        if (n % divisor == 0) {
+            System.out.println(divisor);
+            printPrimeFactors(n / divisor, divisor);
+        } else {
+            printPrimeFactors(n, divisor + 1);
+        }
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        printPrimeFactors(n, 2);
+        sc.close();
+    }
+}
