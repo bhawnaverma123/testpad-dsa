@@ -1,0 +1,23 @@
+class Result {
+    // Recursive function to calculate power
+    static long power(int base, int exp) {
+        // If the exponent is negative, return -1 
+        if (exp < 0) {
+            return -1;
+        }
+        // Base case: base raised to the power of 0 is 1
+        if (exp == 0) {
+            return 1;
+        }
+        if (exp == 1) {
+            return base;
+        }
+        // Recursive case: if exponent is even
+        long halfPower = power(base, exp / 2);
+        if (exp % 2 == 0) {
+            return halfPower * halfPower;
+        }else{
+            return base * halfPower * halfPower ;    
+        }  
+    }
+}
