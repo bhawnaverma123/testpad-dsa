@@ -1,0 +1,35 @@
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        // Input the size of the array
+        int N = scanner.nextInt();
+        int[] arr = new int[N];
+        // Input the array elements
+        for (int i = 0; i < N; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        // Initialize variables for finding the first and second maximum
+        int firstMax = Integer.MIN_VALUE;
+        int secondMax = Integer.MIN_VALUE;
+        boolean allSame = true;
+        // Loop to determine firstMax, secondMax, and check if all elements are the same
+        for (int num : arr) {
+            if (num > firstMax) {
+                secondMax = firstMax; // Update secondMax before firstMax
+                firstMax = num;
+            } else if (num > secondMax && num < firstMax) {
+                secondMax = num;
+            }
+            if (num != arr[0]) {
+                allSame = false;
+            }
+        }
+        // Output results
+        if (allSame) {
+            System.out.println(0); // All elements are the same
+        } else {
+            System.out.println(secondMax); // Second largest element
+        }
+    }
+}
