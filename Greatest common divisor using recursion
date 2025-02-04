@@ -1,0 +1,10 @@
+class Result { 
+    static int gcd(int i, int j) {
+        // Base case: If j becomes 0, return i as the GCD
+        if (j == 0) {
+            return i;
+        }
+        // Recursive case: GCD of i and j is the same as GCD of j and i % j
+        return gcd(j, i % j);
+    }
+}
